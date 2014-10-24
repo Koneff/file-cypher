@@ -55,4 +55,4 @@ def signout():
     if 'email' not in session:
         return redirect(url_for('home'))
     session.pop('email',None)
-    return redirect(url_for('signup'))
+    return redirect(url_for('signup'))#change to home
