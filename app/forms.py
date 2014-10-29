@@ -1,5 +1,6 @@
+import datetime
 from flask.ext.wtf import Form
-from wtforms.fields import TextField, SubmitField, PasswordField
+from wtforms.fields import TextField, SubmitField, PasswordField, FileField, DateTimeField
 from wtforms import validators
 from models import db, User
 
@@ -47,3 +48,11 @@ class SigninForm(Form):
             self.email.errors.append("Invalid e-mail or password")
             return False
 
+
+class UploadForm(Form):
+    filename = FileField("File")
+    #published = DateTimeField(default=datetime.datetime.utcnow)
+    submit = SubmitField("Upload!")
+
+    def __init__(self, *args, **kwargs):
+        Form.__init__(self, *args, **kwargs)

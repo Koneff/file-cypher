@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="jumbo">
+    <h2>Upload your file</h2>
+      {% for message in form.filename.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+
+<form action="{{ url_for('upload') }}" method=post>
+    {{ form.filename.label }}
+    {{ form.filename }}
+    {{ form.submit }}
+  </form>
+  </div>
+{% endblock %}

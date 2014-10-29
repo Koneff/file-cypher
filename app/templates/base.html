@@ -14,6 +14,7 @@
           <li><a href="{{ url_for('home') }}">Home</a></li>
           {% if 'email' in session %}
           <li><a href="{{ url_for('profile') }}">Profile</a></li>
+          <li><a href="{{ url_for('history') }}">History</a></li>
           <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
           {% else %}
           <li><a href="{{ url_for('signup') }}">Sign Up</a></li>

@@ -8,6 +8,14 @@
       <column name="name" sqlType="" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
       <column name="seq" sqlType="" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
     </table>
+    <table name="uploads" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="4"/>
+      <column name="file_name" sqlType="VARCHAR(120)" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
+      <column name="timestamp" sqlType="DATETIME" length="2000000000" precision="10" nullable="true" jdbcType="12"/>
+      <column name="user_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="true" jdbcType="4"/>
+      <primary-key columns="id"/>
+      <foreign-key name="#FAKE_uploads_1" columns="user_id" ref-table="users" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+    </table>
     <table name="users" schema="" catalog="" type="TABLE">
       <column name="uid" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="4"/>
       <column name="firstname" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
@@ -15,6 +23,7 @@
       <column name="email" sqlType="VARCHAR(120)" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
       <column name="pwdhash" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12"/>
       <primary-key columns="uid"/>
+      <exported-key name="#FAKE_uploads_1" table="uploads" schema="" catalog="" columns="user_id"/>
     </table>
   </data-source>
 </component>
